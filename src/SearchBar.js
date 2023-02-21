@@ -6,12 +6,13 @@ const members = [
     name: "Keeho",
     group: "P1Harmony",
     id: 1,
+    url: "/keeho",
   },
-  { name: "Theo", group: "P1Harmony", id: 2 },
-  { name: "Jiung", group: "P1Harmony", id: 3 },
-  { name: "Intak", group: "P1Harmony", id: 4 },
-  { name: "Soul", group: "P1Harmony", id: 5 },
-  { name: "Jongseob", group: "P1Harmony", id: 6 },
+  { name: "Theo", group: "P1Harmony", id: 2, url: "" },
+  { name: "Jiung", group: "P1Harmony", id: 3, url: "" },
+  { name: "Intak", group: "P1Harmony", id: 4, url: "" },
+  { name: "Soul", group: "P1Harmony", id: 5, url: "" },
+  { name: "Jongseob", group: "P1Harmony", id: 6, url: "" },
 ];
 
 const SearchBar = () => {
@@ -23,17 +24,14 @@ const SearchBar = () => {
   };
 
   const filteredMemberList = members.filter((member) =>
-    member.name.toLowerCase().match(searchInput.toLowerCase())
+    member.name.toLowerCase().startsWith(searchInput.toLowerCase())
   );
   const filteredGroupList = members.filter((member) =>
-    member.group.toLowerCase().match(searchInput.toLowerCase())
+    member.group.toLowerCase().startsWith(searchInput.toLowerCase())
   );
-
-  console.log(filteredMemberList);
 
   return (
     <div className="searchbar-container">
-      <p>I am a search bar</p>
       <input
         type="text"
         placeholder="Search by group or member"
@@ -44,10 +42,19 @@ const SearchBar = () => {
         {searchInput && searchInput.length > 0 ? (
           filteredMemberList.map((member) => (
             <div key={member.id}>
-              <span>{member.name}</span> <span>{member.group}</span>
+              <span>
+                {member.name}
+                {/* Can also use nextjs for routing */}
+              </span>
+              <span>{member.group}</span>
+              <span>
+                <a href={member.url}>Go to my PC List</a>
+              </span>
+              {/* would be helpful to have a picture of the member for new fans/people. */}
             </div>
           ))
         ) : (
+          // needs to display ONLY if they have typed in the bar
           <h1>No results found! Try another search.</h1>
         )}
       </div>
