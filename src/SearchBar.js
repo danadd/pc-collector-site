@@ -1,14 +1,22 @@
 import { useState } from "react";
 
 // move this to an API or json later
-const members = [
+export const members = [
   {
     name: "Keeho",
     group: "P1Harmony",
     id: 1,
-    url: "/keeho",
+    url: "/Keeho",
+    img: "/HeadShots/keeho.jpg",
+    albumPCs: "/keeho-album",
+    nonAlbumPCs: "/keeho-non-album",
   },
-  { name: "Theo", group: "P1Harmony", id: 2, url: "" },
+  {
+    name: "Theo",
+    group: "P1Harmony",
+    id: 2,
+    url: "",
+  },
   { name: "Jiung", group: "P1Harmony", id: 3, url: "" },
   { name: "Intak", group: "P1Harmony", id: 4, url: "" },
   { name: "Soul", group: "P1Harmony", id: 5, url: "" },
@@ -47,6 +55,9 @@ const SearchBar = () => {
                 {/* Can also use nextjs for routing */}
               </span>
               <span>{member.group}</span>
+              <span>
+                <img src={member.img} height="50px" width="50px" />
+              </span>
               <span>
                 <a href={member.url}>Go to my PC List</a>
               </span>
