@@ -5,6 +5,7 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import KeehoAlbum from "./KeehoAlbum";
 import KeehoNonAlbum from "./KeehoNonAlbum";
+import Link from "next/link";
 
 const Keeho = () => {
   const [albumClicked, setAlbumClicked] = useState(false);
@@ -20,7 +21,6 @@ const Keeho = () => {
     setNonAlbumClicked((value) => !value);
   };
 
-  console.log(albumClicked);
   return (
     <div className="pc-type-selection-container">
       <button type="button" class="btn btn-primary" onClick={handleClick}>
@@ -29,9 +29,15 @@ const Keeho = () => {
       {albumClicked ? <KeehoAlbum /> : null}
 
       <button type="button" class="btn btn-primary" onClick={handleNonAlbumClick}>
-        Keeho Album PCs
+        Keeho Non-Album PCs
       </button>
       {nonAlbumClicked ? <KeehoNonAlbum /> : null}
+
+      <Link href="/Home">
+        <button type="button" class="btn btn-primary">
+          Back To Home
+        </button>
+      </Link>
     </div>
   );
 };

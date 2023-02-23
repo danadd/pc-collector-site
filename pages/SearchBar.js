@@ -8,8 +8,6 @@ export const members = [
     id: 1,
     url: "/Keeho",
     img: "../HeadShots/keeho.jpg",
-    albumPCs: "/keeho-album",
-    nonAlbumPCs: "/keeho-non-album",
   },
   {
     name: "Theo",

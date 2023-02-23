@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchBar from "./SearchBar";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -7,9 +8,11 @@ const Home = () => {
       <div className="search-bar">
         <SearchBar />
       </div>
-      <button type="button" class="btn btn-primary">
-        Go to my saved lists.
-      </button>
+      <Link href="">
+        <button type="button" class="btn btn-primary">
+          Go to my saved lists.
+        </button>
+      </Link>
     </div>
   );
 };
