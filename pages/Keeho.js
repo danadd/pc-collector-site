@@ -22,15 +22,17 @@ const Keeho = () => {
   };
 
   return (
-    <div className="pc-type-selection-container">
+    <div className="pc-type-selection-container container">
       <button type="button" class="btn btn-primary" onClick={handleClick}>
         Keeho Album PCs
       </button>
-      {albumClicked ? <KeehoAlbum /> : null}
 
       <button type="button" class="btn btn-primary" onClick={handleNonAlbumClick}>
         Keeho Non-Album PCs
       </button>
+
+      {albumClicked ? <KeehoAlbum /> : null}
+
       {nonAlbumClicked ? <KeehoNonAlbum /> : null}
 
       <Link href="/Home">

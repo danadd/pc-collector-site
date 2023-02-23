@@ -11,14 +11,14 @@ const KeehoNonAlbum = () => {
     },
     {
       name: "KTown 4U B",
-      img: "ktown4uB-BO1.png",
+      img: "ktown4uB-BO2.png",
       id: "BO-2",
       era: "Break Out",
       type: "POB",
     },
     {
       name: "WEVERSE",
-      img: "",
+      img: "weverse-BO3.png",
       id: "BO-3",
       era: "Break Out",
       type: "POB",
