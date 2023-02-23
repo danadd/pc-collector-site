@@ -7,7 +7,7 @@ export const members = [
     group: "P1Harmony",
     id: 1,
     url: "/Keeho",
-    img: "/HeadShots/keeho.jpg",
+    img: "../HeadShots/keeho.jpg",
     albumPCs: "/keeho-album",
     nonAlbumPCs: "/keeho-non-album",
   },
