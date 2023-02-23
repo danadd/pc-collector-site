@@ -7,7 +7,7 @@ export const members = [
     group: "P1Harmony",
     id: 1,
     url: "/Keeho",
-    img: "../HeadShots/keeho.jpg",
+    img: "keeho.png",
   },
   {
     name: "Theo",
@@ -48,14 +48,13 @@ const SearchBar = () => {
         {searchInput && searchInput.length > 0 ? (
           filteredMemberList.map((member) => (
             <div key={member.id}>
+              <img src={member.img} height="120px" width="120px" />
               <span>
                 {member.name}
                 {/* Can also use nextjs for routing */}
               </span>
               <span>{member.group}</span>
-              <span>
-                <img src={member.img} height="50px" width="50px" />
-              </span>
+              <span></span>
               <span>
                 <a href={member.url}>Go to my PC List</a>
               </span>
