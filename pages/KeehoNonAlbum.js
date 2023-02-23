@@ -1,7 +1,12 @@
 const KeehoNonAlbum = () => {
   // move to an API or JSON later
   const keehoNonAlbumPCs = [
-    { name: "Broadcast Benefit A", img: "../HeadShots/keeho.jpg", id: 1, era: "Set In" },
+    {
+      name: "Broadcast Benefit A",
+      img: "keeho.png",
+      id: 1,
+      era: "Set In",
+    },
     { name: "Broadcast Benefit B", img: "blah", id: 2, era: "Set In" },
     { name: "Broadcast Benefit C", img: "blah", id: 3, era: "Set In" },
   ];
@@ -11,7 +16,7 @@ const KeehoNonAlbum = () => {
       {keehoNonAlbumPCs.map((keehoNonAlbumPC) => (
         <div key={keehoNonAlbumPC.id}>
           <span>
-            <img src={keehoNonAlbumPC.img} height="50px" width="50px" />
+            <img src={keehoNonAlbumPC.img} height="250px" width="200px" />
           </span>
 
           <span>{keehoNonAlbumPC.name}</span>
