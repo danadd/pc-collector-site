@@ -4,3 +4,11 @@ img.pc_image {
   height: 250px;
   width: 180px;
 }
+
+.individual-pc-container {
+  margin-bottom: 50px;
+}
+
+.pc-list-container {
+  margin-top: 40px;
+}

@@ -32,21 +32,24 @@ const KeehoAlbum = () => {
   ];
 
   return (
-    <div className="pc-list-container">
-      {keehoAlbumPCs.map((keehoAlbumPC) => (
-        <div key={keehoAlbumPC.id}>
-          <span>
+    <div className="pc-list-container container">
+      <div className="row">
+        {keehoAlbumPCs.map((keehoAlbumPC) => (
+          <div key={keehoAlbumPC.id} className="individual-pc-container col col-md-4">
             {/* on click the image will be greyed out and saved to their "PC List" for the first pass */}
+            {/* on click open a menu to save to list, otw, or wishlisted */}
             <img src={keehoAlbumPC.img} className="pc_image" />
-          </span>
 
-          <span>{keehoAlbumPC.name}</span>
+            <div className="row">
+              <span>{keehoAlbumPC.name}</span>
+            </div>
 
-          <span>
-            <span>{keehoAlbumPC.era}</span>
-          </span>
-        </div>
-      ))}
+            <div className="row">
+              <span>{keehoAlbumPC.era}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

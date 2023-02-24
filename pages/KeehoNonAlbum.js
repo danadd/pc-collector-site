@@ -142,28 +142,22 @@ const KeehoNonAlbum = () => {
 
   return (
     <div className="pc-list-container container">
-      {keehoNonAlbumPCs.map((keehoNonAlbumPC) => (
-        <div key={keehoNonAlbumPC.id}>
-          <span>
-            <img
-              src={keehoNonAlbumPC.img}
-              className="pc_image"
-              // will get this working later ^^
-              height="250px"
-              width="180px"
-            />
-          </span>
+      <div className="row">
+        {keehoNonAlbumPCs.map((keehoNonAlbumPC) => (
+          <div key={keehoNonAlbumPC.id} className="individual-pc-container col col-md-4">
+            {/* on click the image will be greyed out and saved to their "PC List" for the first pass */}
+            <img src={keehoNonAlbumPC.img} className="pc_image" />
 
-          <span>{keehoNonAlbumPC.name}</span>
+            <div className="row">
+              <span>{keehoNonAlbumPC.name}</span>
+            </div>
 
-          <span>
-            <span>{keehoNonAlbumPC.era}</span>
-          </span>
-          {/* Would it make sense for a user to click on non-album or album PC from here? It would save on some code for now */}
-        </div>
-      ))}
-
-      <div>{/* Columns of 3-5 cards per row on a medium laptop screen */}</div>
+            <div className="row">
+              <span>{keehoNonAlbumPC.era}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
