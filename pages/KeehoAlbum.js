@@ -36,13 +36,8 @@ const KeehoAlbum = () => {
       {keehoAlbumPCs.map((keehoAlbumPC) => (
         <div key={keehoAlbumPC.id}>
           <span>
-            <img
-              src={keehoAlbumPC.img}
-              className="pc_image"
-              // will get this working later ^^
-              height="250px"
-              width="180px"
-            />
+            {/* on click the image will be greyed out and saved to their "PC List" for the first pass */}
+            <img src={keehoAlbumPC.img} className="pc_image" />
           </span>
 
           <span>{keehoAlbumPC.name}</span>
