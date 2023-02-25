@@ -5,6 +5,7 @@ export const members = [
   {
     name: "Keeho",
     group: "P1Harmony",
+    group_url: "/P1Harmony",
     id: 1,
     url: "/Keeho",
     img: "keeho.png",
@@ -12,13 +13,22 @@ export const members = [
   {
     name: "Theo",
     group: "P1Harmony",
+    group_url: "/P1Harmony",
     id: 2,
     url: "",
+    img: "",
   },
-  { name: "Jiung", group: "P1Harmony", id: 3, url: "" },
-  { name: "Intak", group: "P1Harmony", id: 4, url: "" },
-  { name: "Soul", group: "P1Harmony", id: 5, url: "" },
-  { name: "Jongseob", group: "P1Harmony", id: 6, url: "" },
+  { name: "Jiung", group: "P1Harmony", group_url: "/P1Harmony", id: 3, url: "", img: "" },
+  { name: "Intak", group: "P1Harmony", group_url: "/P1Harmony", id: 4, url: "", img: "" },
+  { name: "Soul", group: "P1Harmony", group_url: "/P1Harmony", id: 5, url: "", img: "" },
+  {
+    name: "Jongseob",
+    group: "P1Harmony",
+    group_url: "/P1Harmony",
+    id: 6,
+    url: "",
+    img: "",
+  },
 ];
 
 const SearchBar = () => {
@@ -36,32 +46,28 @@ const SearchBar = () => {
   );
 
   return (
-    <div className="searchbar-container">
+    <div className="searchbar-container container">
       <input
+        className="searchbar"
         type="text"
         placeholder="Search by group or member"
         onChange={handleChange}
         value={searchInput}
       />
-      <div className="member-card-list">
-        {searchInput && searchInput.length > 0 ? (
-          filteredMemberAndGroupList.map((member) => (
-            <div key={member.id}>
-              <img src={member.img} className="pc_image" />
-              <span>{member.name}</span>
-              <span>{member.group}</span>
-              <span></span>
-              <span>
-                <a href={member.url}>Go to my PC List</a>
-              </span>
-              {/* would be helpful to have a picture of the member for new fans/people. */}
-              {/* Would it make sense for a user to click on non-album or album PC from here? It would save on some code for now */}
-            </div>
-          ))
-        ) : (
-          // needs to display ONLY if they have typed in the bar
-          <h1>No results found! Try another search.</h1>
-        )}
+      <div className="member_card_list">
+        <div className="row">
+          {filteredMemberAndGroupList.length > 0
+            ? filteredMemberAndGroupList.map((member) => (
+                <div key={member.id} className="col col-md-5">
+                  <img src={member.img} className="member_image row" />
+                  {member.name} <a href={member.group_url}>{member.group}</a>
+                  <div className="row">
+                    <a href={member.url}>Go to my PC List</a>
+                  </div>
+                </div>
+              ))
+            : searchInput.length > 0 && <h1>No results found! Try another search.</h1>}
+        </div>
       </div>
     </div>
   );

@@ -12,3 +12,22 @@ img.pc_image {
 .pc-list-container {
   margin-top: 40px;
 }
+.logo_image {
+  height: 180px;
+  width: 380px;
+}
+
+.member_card_list {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.member_image {
+  height: 180px;
+  width: 180px;
+}
+
+.searchbar {
+  border-radius: 30px;
+  margin-top: 10px;
+}
