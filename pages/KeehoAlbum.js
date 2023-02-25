@@ -1,3 +1,6 @@
+import { useState } from "react";
+import WishlistMenu from "./WishlistMenu";
+
 const KeehoAlbum = () => {
   const keehoAlbumPCs = [
     // Break Out
@@ -31,6 +34,12 @@ const KeehoAlbum = () => {
     },
   ];
 
+  const [menuToggle, setMenuToggle] = useState(false);
+
+  const handleClick = () => {
+    setMenuToggle(!menuToggle);
+  };
+
   return (
     <div className="pc-list-container container">
       <div className="row">
@@ -38,7 +47,8 @@ const KeehoAlbum = () => {
           <div key={keehoAlbumPC.id} className="individual-pc-container col col-md-4">
             {/* on click the image will be greyed out and saved to their "PC List" for the first pass */}
             {/* on click open a menu to save to list, otw, or wishlisted */}
-            <img src={keehoAlbumPC.img} className="pc_image" />
+            <img src={keehoAlbumPC.img} className="pc_image" onClick={handleClick} />
+            {menuToggle && <WishlistMenu />}
 
             <div className="row">
               <span>{keehoAlbumPC.name}</span>

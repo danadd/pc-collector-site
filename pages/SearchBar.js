@@ -29,11 +29,10 @@ const SearchBar = () => {
     setSearchInput(e.target.value);
   };
 
-  const filteredMemberList = members.filter((member) =>
-    member.name.toLowerCase().startsWith(searchInput.toLowerCase())
-  );
-  const filteredGroupList = members.filter((member) =>
-    member.group.toLowerCase().startsWith(searchInput.toLowerCase())
+  const filteredMemberAndGroupList = members.filter(
+    (memberGroup) =>
+      memberGroup.name.toLowerCase().startsWith(searchInput.toLowerCase()) ||
+      memberGroup.group.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   return (
@@ -46,13 +45,10 @@ const SearchBar = () => {
       />
       <div className="member-card-list">
         {searchInput && searchInput.length > 0 ? (
-          filteredMemberList.map((member) => (
+          filteredMemberAndGroupList.map((member) => (
             <div key={member.id}>
-              <img src={member.img} height="120px" width="120px" />
-              <span>
-                {member.name}
-                {/* Can also use nextjs for routing */}
-              </span>
+              <img src={member.img} className="pc_image" />
+              <span>{member.name}</span>
               <span>{member.group}</span>
               <span></span>
               <span>
