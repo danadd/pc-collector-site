@@ -34,7 +34,7 @@ const KeehoAlbum = () => {
     },
   ];
 
-  const [menuToggle, setMenuToggle] = useState(false);
+  const [menuToggle, setMenuToggle] = useState(null);
 
   const handleClick = (id) => {
     setMenuToggle(id);

@@ -1,5 +1,7 @@
 // need a ternary operator here. IF they are not logged in, show this page. If they ARE logged in, just take them to home.
 import "bootstrap/dist/css/bootstrap.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 import Link from "next/link";
 
 const Login = () => {
