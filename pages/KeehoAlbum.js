@@ -36,8 +36,8 @@ const KeehoAlbum = () => {
 
   const [menuToggle, setMenuToggle] = useState(false);
 
-  const handleClick = () => {
-    setMenuToggle(!menuToggle);
+  const handleClick = (id) => {
+    setMenuToggle(id);
   };
 
   return (
@@ -47,8 +47,12 @@ const KeehoAlbum = () => {
           <div key={keehoAlbumPC.id} className="individual-pc-container col col-md-4">
             {/* on click the image will be greyed out and saved to their "PC List" for the first pass */}
             {/* on click open a menu to save to list, otw, or wishlisted */}
-            <img src={keehoAlbumPC.img} className="pc_image" onClick={handleClick} />
-            {menuToggle && <WishlistMenu />}
+            <img
+              src={keehoAlbumPC.img}
+              className="pc_image"
+              onClick={() => handleClick(keehoAlbumPC.id)}
+            />
+            {menuToggle === keehoAlbumPC.id && <WishlistMenu />}
 
             <div className="row">
               <span>{keehoAlbumPC.name}</span>
