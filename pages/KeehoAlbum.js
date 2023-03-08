@@ -255,6 +255,37 @@ const KeehoAlbum = () => {
     // needs more logic to shut the menu if they click the image again
   };
 
+  const [favorites, setFavorites] = useState([]);
+
+  const handleFavoriteClick = (id) => {
+    // Check if the image is already in favorites
+    if (!favorites.includes(id)) {
+      // If not, add it to the favorites list
+      setFavorites([...favorites, id]);
+    }
+    // how will they remove the card from their favorites if they want to? Remember to add that functionality
+  };
+
+  const [collected, setCollected] = useState([]);
+
+  const handleCollectedClick = (id) => {
+    if (!collected.includes(id)) {
+      setCollected([...collected, id]);
+    }
+  };
+
+  const [otw, setOTW] = useState([]);
+
+  const handleOTWClick = (id) => {
+    if (!otw.includes(id)) {
+      setOTW([...otw, id]);
+    }
+  };
+
+  console.log(favorites, "favorites");
+  console.log(collected, "collected");
+  console.log(collected, "otw");
+
   return (
     <div className="pc-list-container container">
       <div className="row">
@@ -267,7 +298,13 @@ const KeehoAlbum = () => {
               className="pc_image"
               onClick={() => handleClick(keehoAlbumPC.id)}
             />
-            {menuToggle === keehoAlbumPC.id && <WishlistMenu />}
+            {menuToggle === keehoAlbumPC.id && (
+              <WishlistMenu
+                onFavoriteClick={() => handleFavoriteClick(keehoAlbumPC.id)}
+                onCollectedClick={() => handleCollectedClick(keehoAlbumPC.id)}
+                onOTWClick={() => handleOTWClick(keehoAlbumPC.id)}
+              />
+            )}
 
             <div className="row">
               <span>{keehoAlbumPC.name}</span>
