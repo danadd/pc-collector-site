@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import WishlistMenu from "./WishlistMenu";
 
 const KeehoAlbum = () => {
@@ -255,7 +255,24 @@ const KeehoAlbum = () => {
     // needs more logic to shut the menu if they click the image again
   };
 
+  // Favorite State
+
   const [favorites, setFavorites] = useState([]);
+
+  // Load favorites from session storage when the component mounts
+  useEffect(() => {
+    const savedFavorites = sessionStorage.getItem("favorites");
+    if (savedFavorites) {
+      setFavorites(JSON.parse(savedFavorites));
+    }
+
+    console.log(savedFavorites, "saved favorites");
+  }, []);
+
+  // Save favorites to session storage whenever the favorites state changes
+  useEffect(() => {
+    sessionStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   const handleFavoriteClick = (id) => {
     // Check if the image is already in favorites
@@ -266,7 +283,20 @@ const KeehoAlbum = () => {
     // how will they remove the card from their favorites if they want to? Remember to add that functionality
   };
 
+  // Collected State
+
   const [collected, setCollected] = useState([]);
+
+  useEffect(() => {
+    const savedCollected = sessionStorage.getItem("collected");
+    if (savedCollected) {
+      setFavorites(JSON.parse(savedCollected));
+    }
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem("collected", JSON.stringify(collected));
+  }, [collected]);
 
   const handleCollectedClick = (id) => {
     if (!collected.includes(id)) {
@@ -274,7 +304,20 @@ const KeehoAlbum = () => {
     }
   };
 
+  // Setting OTW State
+
   const [otw, setOTW] = useState([]);
+
+  useEffect(() => {
+    const savedOTW = sessionStorage.getItem("otw");
+    if (savedOTW) {
+      setFavorites(JSON.parse(savedOTW));
+    }
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem("otw", JSON.stringify(otw));
+  }, [otw]);
 
   const handleOTWClick = (id) => {
     if (!otw.includes(id)) {
@@ -284,15 +327,13 @@ const KeehoAlbum = () => {
 
   console.log(favorites, "favorites");
   console.log(collected, "collected");
-  console.log(collected, "otw");
+  console.log(otw, "otw");
 
   return (
     <div className="pc-list-container container">
       <div className="row">
         {keehoAlbumPCs.map((keehoAlbumPC) => (
           <div key={keehoAlbumPC.id} className="individual-pc-container col col-md-4">
-            {/* on click the image will be greyed out and saved to their "PC List" for the first pass */}
-            {/* on click open a menu to save to list, otw, or wishlisted */}
             <img
               src={keehoAlbumPC.img}
               className="pc_image"
