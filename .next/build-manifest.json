@@ -15,10 +15,10 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/Keeho": [
+    "/Wishlist": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/Keeho.js"
+      "static/chunks/pages/Wishlist.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

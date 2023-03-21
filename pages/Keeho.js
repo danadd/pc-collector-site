@@ -40,7 +40,7 @@ const Keeho = () => {
           Back To Home
         </button>
       </Link>
-      <Link href="">
+      <Link href="/Wishlist">
         <button type="button" class="btn btn-primary">
           Go to my saved lists.
           {/* think about the UI. Would it be better to just click on one button and then go to another page similar to the PC Album/Non-Album page and have the user to click on their favorites vs otw vs collected vs etc? Or have buttons for each list? I think the former is better */}
