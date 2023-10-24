@@ -8,7 +8,7 @@ const Home = () => {
       <div className="search-bar">
         <SearchBar />
       </div>
-      <Link href="">
+      <Link className="d-flex justify-content-center align-items-center" href="">
         <button type="button" class="btn btn-primary">
           Go to my saved lists.
         </button>

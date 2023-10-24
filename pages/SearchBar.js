@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // move this to an API or json later
 export const members = [
@@ -67,21 +68,25 @@ const SearchBar = () => {
   );
 
   return (
-    <div className="searchbar-container container">
-      <input
-        className="searchbar"
-        type="text"
-        placeholder="Search by group or member"
-        onChange={handleChange}
-        value={searchInput}
-      />
-      <div className="member_card_list">
-        <div className="row">
+    <React.Fragment>
+      <div className="searchbar-container mt-5 d-flex justify-content-center align-items-center">
+        <input
+          className="searchbar"
+          type="text"
+          placeholder="Search by group or member"
+          onChange={handleChange}
+          value={searchInput}
+        />
+      </div>
+
+      <div className="member_card_list d-flex justify-content-center align-items-center">
+        <div className="row d-flex justify-content-center align-items-center">
           {filteredMemberAndGroupList.length > 0
             ? filteredMemberAndGroupList.map((member) => (
-                <div key={member.id} className="col col-md-5">
+                <div key={member.id} className="col col-md-4 mb-5">
+                  {member.name}
                   <img src={member.img} className="member_image row" />
-                  {member.name} <a href={member.group_url}>{member.group}</a>
+                  <a href={member.group_url}>{member.group}</a>
                   <div className="row">
                     <a href={member.url}>Go to my PC List</a>
                   </div>
@@ -90,7 +95,7 @@ const SearchBar = () => {
             : searchInput.length > 0 && <h1>No results found! Try another search.</h1>}
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 export default SearchBar;
